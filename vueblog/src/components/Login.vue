@@ -58,7 +58,7 @@
       submitClick: function () {
         var _this = this;
         this.loading = true;
-        this.postRequest('/login', this.loginForm).then(resp=> {
+        this.postRequest('/doLogin', this.loginForm).then(resp=> {
           _this.loading = false;
           if (resp && resp.status == 200) {
             var data = resp.data;

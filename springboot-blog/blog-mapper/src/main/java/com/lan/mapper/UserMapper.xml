@@ -27,13 +27,13 @@
         </collection>
     </resultMap>
     <select id="loadUserByUsername" resultMap="lazyLoadRoles">
-        select * from User WHERE username=#{username};
+        select * from user WHERE username=#{username};
     </select>
     <select id="getRolesByUserId" resultType="com.lan.domain.Role">
-        SELECT r.* FROM User_role h,role r where h.rid=r.id AND h.Userid=#{id}
+        SELECT r.* FROM user_role h,role r where h.uid=r.id AND h.Userid=#{id}
     </select>
     <insert id="UserReg">
-        INSERT INTO User set username=#{username},password=#{password}
+        INSERT INTO user set username=#{username},password=#{password}
     </insert>
     <select id="getUsersByKeywords" resultMap="eagerLoadRoles">
         select h.*,`r`.`id` AS `rid`,`r`.`name` AS `rname`,`r`.`nameZh` AS `rnameZh` from ((`User` `h` left join `User_role`
@@ -98,5 +98,8 @@
         <if test="currentId!=null">
             WHERE id !=#{currentId}
         </if>
+    </select>
+    <select id="getAllUsersExceptCurrentUser" resultMap="BaseResultMap">
+        select * from hr where id !=#{id};
     </select>
 </mapper>

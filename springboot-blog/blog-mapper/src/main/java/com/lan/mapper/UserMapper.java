@@ -30,4 +30,6 @@ public interface UserMapper {
     int deleteUser(Long UserId);
 
     List<User> getAllUsers(@Param("currentId") Long currentId);
+
+    List<User> getAllUsersExceptCurrentUser(Integer id);
 }

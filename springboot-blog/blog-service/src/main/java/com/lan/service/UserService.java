@@ -31,14 +31,14 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
-//    public List<User> getAllHrsExceptCurrentHr() {
-//        return userMapper.getAllHrsExceptCurrentHr(UserUtils.getCurrentHr().getId());
-//    }
+    public List<User> getAllUsersExceptCurrentHr() {
+        return userMapper.getAllUsersExceptCurrentUser(UserUtils.getCurrentUser().getId());
+    }
 
 //    public Integer updateHr(Hr hr) {
 //        return hrMapper.updateByPrimaryKeySelective(hr);
 //    }
-//
+
 //    @Transactional
 //    public boolean updateHrRole(Integer hrid, Integer[] rids) {
 //        hrRoleMapper.deleteByHrid(hrid);

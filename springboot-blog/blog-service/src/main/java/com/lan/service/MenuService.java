@@ -21,8 +21,9 @@ public class MenuService {
     MenuMapper menuMapper;
     @Autowired
     MenuRoleMapper menuRoleMapper;
+
     public List<Menu> getMenusByUserId() {
-        return menuMapper.getMenusByHrId(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
+        return menuMapper.getMenusByUserId(((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId());
     }
 
     @Cacheable

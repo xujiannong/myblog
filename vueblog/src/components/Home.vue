@@ -2,7 +2,7 @@
   <div>
     <el-container class="home-container">
       <el-header class="home-header">
-        <span class="home_title">微人事</span>
+        <span class="home_title">博客</span>
         <div style="display: flex;align-items: center;margin-right: 7px">
           <el-badge style="margin-right: 30px" :is-dot="this.$store.state.nfDot">
             <i class="fa fa-bell-o" @click="goChat" style="cursor: pointer"></i>
@@ -60,7 +60,7 @@
   export default{
     mounted: function () {
 //      this.devMsg();
-      this.loadNF();
+    //  this.loadNF();
     },
     methods: {
       loadNF(){

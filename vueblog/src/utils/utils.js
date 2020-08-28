@@ -53,7 +53,10 @@ export const formatRoutes = (routes)=> {
           require(['../components/statistics/' + component + '.vue'], resolve)
         } else if (component.startsWith("Sys")) {
           require(['../components/system/' + component + '.vue'], resolve)
+        }else if (component.startsWith("Post")) {
+          require(['../components/blog/' + component + '.vue'], resolve)
         }
+
       },
       name: name,
       iconCls: iconCls,

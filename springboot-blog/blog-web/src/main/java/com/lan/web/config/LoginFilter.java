@@ -62,14 +62,14 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         setDetails(request, authRequest);
         User principal = new User();
         principal.setUsername(username);
-       // sessionRegistry.registerNewSession(request.getSession(true).getId(), principal);
+        // sessionRegistry.registerNewSession(request.getSession(true).getId(), principal);
         return this.getAuthenticationManager().authenticate(authRequest);
     }
 
-        public void checkCode (HttpServletResponse resp, String code, String verify_code){
-            if (code == null || verify_code == null || "".equals(code) || !verify_code.toLowerCase().equals(code.toLowerCase())) {
-                //验证码不正确
-                throw new AuthenticationServiceException("验证码不正确");
-            }
+    public void checkCode(HttpServletResponse resp, String code, String verify_code) {
+        if (code == null || verify_code == null || "".equals(code) || !verify_code.toLowerCase().equals(code.toLowerCase())) {
+            //验证码不正确
+            throw new AuthenticationServiceException("验证码不正确");
         }
     }
+}

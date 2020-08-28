@@ -24,29 +24,35 @@ public class User implements UserDetails {
     private String remark;
     private List<Role> roles;
     private String userface;
+
     @Override
     public boolean isEnabled() {
         return enabled;
     }
+
     @Override
     public String getUsername() {
         return username;
     }
+
     @JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
+
     @JsonIgnore
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
+
     @JsonIgnore
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
     @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -56,6 +62,7 @@ public class User implements UserDetails {
         }
         return authorities;
     }
+
     @JsonIgnore
     @Override
     public String getPassword() {

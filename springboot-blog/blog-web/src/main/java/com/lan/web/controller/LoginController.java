@@ -32,9 +32,8 @@ public class LoginController {
      * 生成验证码
      */
     @GetMapping("/captchaImage")
-    public Map getCode(HttpServletResponse response) throws IOException
-    {
-        Map<String,Object> map = new HashMap();
+    public Map getCode(HttpServletResponse response) throws IOException {
+        Map<String, Object> map = new HashMap();
         // 生成随机字串
         String verifyCode = VerifyCodeUtils.generateVerifyCode(4);
         // 唯一标识
@@ -48,20 +47,15 @@ public class LoginController {
         int w = 111, h = 36;
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         VerifyCodeUtils.outputImage(w, h, stream, verifyCode);
-        try
-        {
+        try {
             map.put("uuid", uuid);
             map.put("img", Base64.encode(stream.toByteArray()));
             map.put("code", 200);
             return map;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return map;
-        }
-        finally
-        {
+        } finally {
             stream.close();
         }
     }

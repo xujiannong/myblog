@@ -22,7 +22,7 @@ public class CustomUrlDecisionManager implements AccessDecisionManager {
                 if (authentication instanceof AnonymousAuthenticationToken) {
                     throw new AccessDeniedException("尚未登录，请登录!");
                     //return;
-                }else {
+                } else {
                     return;
                 }
             }

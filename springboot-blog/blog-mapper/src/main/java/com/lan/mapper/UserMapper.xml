@@ -36,7 +36,8 @@
         INSERT INTO user set username=#{username},password=#{password}
     </insert>
     <select id="getUsersByKeywords" resultMap="eagerLoadRoles">
-        select h.*,`r`.`id` AS `rid`,`r`.`name` AS `rname`,`r`.`nameZh` AS `rnameZh` from ((`User` `h` left join `User_role`
+        select h.*,`r`.`id` AS `rid`,`r`.`name` AS `rname`,`r`.`nameZh` AS `rnameZh` from ((`User` `h` left join
+        `User_role`
         `h_r` on ((`h`.`id` = `h_r`.`Userid`))) left join `role` `r` on ((`h_r`.`rid` = `r`.`id`))) where h.`id` not
         in(select h_r.`Userid` from User_role h_r,role r where h_r.`rid`=r.`id` and r.`nameZh`='系统管理员')
         <if test="keywords!='all' and keywords!=''">
@@ -45,8 +46,10 @@
         order by h.`id` limit 10
     </select>
     <select id="getUserById" resultMap="eagerLoadRoles">
-        select h.*,`r`.`id` AS `rid`,`r`.`name` AS `rname`,`r`.`nameZh` AS `rnameZh` from ((`User` `h` left join `User_role`
-        `h_r` on ((`h`.`id` = `h_r`.`Userid`))) left join `role` `r` on ((`h_r`.`rid` = `r`.`id`))) where h.`id`=#{UserId}
+        select h.*,`r`.`id` AS `rid`,`r`.`name` AS `rname`,`r`.`nameZh` AS `rnameZh` from ((`User` `h` left join
+        `User_role`
+        `h_r` on ((`h`.`id` = `h_r`.`Userid`))) left join `role` `r` on ((`h_r`.`rid` = `r`.`id`))) where
+        h.`id`=#{UserId}
     </select>
     <update id="updateUser" parameterType="com.lan.domain.User">
         update User

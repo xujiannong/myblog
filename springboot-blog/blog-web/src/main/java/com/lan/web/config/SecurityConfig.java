@@ -111,7 +111,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessHandler((req, resp, authentication) -> {
-                    resp.setContentType("application/json;charset=utf-8");
+                            resp.setContentType("application/json;charset=utf-8");
                             PrintWriter out = resp.getWriter();
                             out.write(new ObjectMapper().writeValueAsString(RespBean.ok("注销成功!")));
                             out.flush();
@@ -123,7 +123,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable().exceptionHandling()
                 //没有认证时，在这里处理结果，不要重定向
                 .authenticationEntryPoint((req, resp, authException) -> {
-                    resp.setContentType("application/json;charset=utf-8");
+                            resp.setContentType("application/json;charset=utf-8");
                             resp.setStatus(401);
                             PrintWriter out = resp.getWriter();
                             RespBean respBean = RespBean.error("访问失败!");

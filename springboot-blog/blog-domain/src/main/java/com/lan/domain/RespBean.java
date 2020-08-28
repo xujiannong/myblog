@@ -2,7 +2,7 @@ package com.lan.domain;
 
 
 public class RespBean {
-    private Integer status;
+    private Object status;
     private String msg;
     private Object obj;
 
@@ -26,16 +26,22 @@ public class RespBean {
         return new RespBean(500, msg, obj);
     }
 
-    private RespBean() {
+    public RespBean() {
     }
 
-    private RespBean(Integer status, String msg, Object obj) {
+    public RespBean(Integer status, String msg, Object obj) {
         this.status = status;
         this.msg = msg;
         this.obj = obj;
     }
 
-    public Integer getStatus() {
+    public RespBean(String status, String msg) {
+
+        this.status = status;
+        this.msg = msg;
+    }
+
+    public Object getStatus() {
         return status;
     }
 

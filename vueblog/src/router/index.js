@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
-import BlogIndex from '@/components/blog/index'
 import Home from '@/components/Home'
 import Chat from '@/components/chat/Chat'
 // import EmpAdv from '@/components/emp/EmpAdv'
@@ -36,10 +35,6 @@ export const constantRouterMap = [
     component: Login,
     hidden: true
   }, {
-    path: '/blog/blogIndex',
-    name: '博客首页',
-    component: BlogIndex,
-  }, {
     path: '/home',
     name: '主页',
     component: Home,
@@ -66,11 +61,11 @@ export const constantRouterMap = [
 
 const router = new Router({
   routes: constantRouterMap,
-  // scrollBehavior (to, from, savedPosition) {
-  //   if (to.meta.scrollTop) {
-  //     return { x: 0, y: 0 }
-  //   }
-  // }
+  scrollBehavior (to, from, savedPosition) {
+    if (to.meta.scrollTop) {
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 // router.beforeEach((to, from, next) => {
